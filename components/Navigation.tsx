@@ -76,7 +76,7 @@ export default function Navigation() {
         </div>
       </div>
       
-      {/* Inline Mobile menu implementation */}
+      {/* Inline Mobile menu implementation
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm sm:hidden">
           <div className="fixed inset-0 bg-black/20" onClick={closeMobileMenu} />
@@ -120,7 +120,7 @@ export default function Navigation() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </header>
   );
 }
