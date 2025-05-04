@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { ArrowLeft, Github, Globe } from "lucide-react";
 
+// In Next.js 15, params is a Promise
 interface PageProps {
-    params: {
-      id: string;
-    };
-    searchParams: Record<string, string | string[] | undefined>;
-  }
+  params: Promise<{
+    id: string;
+  }>;
+  searchParams?: Record<string, string | string[] | undefined>;
+}
 
 // Sample project data - in a real app, this would come from a database or API
 const projects = [
@@ -37,16 +38,19 @@ const projects = [
   },
 ];
 
-export default function ProjectPage({ params }: PageProps) {
+export default async function ProjectPage({ params }: PageProps) {
+  // In Next.js 15, we need to await the params
+  const resolvedParams = await params;
+  
   // In a real app, you would fetch the project from an API or database
-  const project = projects.find(p => p.id === parseInt(params.id));
+  const project = projects.find(p => p.id === parseInt(resolvedParams.id));
   
   if (!project) {
     return (
       <div className="flex flex-col items-center justify-center py-20 font-mono">
         <h1 className="text-2xl font-bold mb-4">Project Not Found</h1>
         <p className="text-gray-600 dark:text-gray-400 mb-6">
-          The project you're looking for doesn't exist or has been removed.
+          The project you&apos;re looking for doesn&apos;t exist or has been removed.
         </p>
         <Link
           href="/"
