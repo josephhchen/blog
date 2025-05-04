@@ -80,7 +80,7 @@ export default function DevlogPage({ params }: DevlogPageProps) {
       <div className="flex flex-col items-center justify-center py-20 font-mono">
         <h1 className="text-2xl font-bold mb-4">Devlog Not Found</h1>
         <p className="text-gray-600 dark:text-gray-400 mb-6">
-          The devlog you're looking for doesn't exist or has been removed.
+          The devlog you&apos;re looking for doesn&apos;t exist or has been removed.
         </p>
         <Link
           href="/devlogs"
