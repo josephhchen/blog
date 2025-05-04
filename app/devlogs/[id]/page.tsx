@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { JSX } from "react";
 import { Metadata } from "next";
-import { use } from "react";
 
 // Define the type for devlog items
 type Devlog = {
