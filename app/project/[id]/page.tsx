@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { ArrowLeft, Github, Globe } from "lucide-react";
 
-// In Next.js 15, params is a Promise
+// In Next.js 15, both params and searchParams are Promises
 interface PageProps {
   params: Promise<{
     id: string;
   }>;
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
 // Sample project data - in a real app, this would come from a database or API
