@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
@@ -15,17 +15,14 @@ export default function Navigation() {
     { name: 'Devlogs', path: '/devlogs' },
   ];
 
-  // Function to toggle the mobile menu
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // Function to close the mobile menu
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false);
-  };
+//   const closeMobileMenu = () => {
+//     setMobileMenuOpen(false);
+//   };
 
-  // Effect to prevent body scroll when menu is open
   if (typeof window !== 'undefined') {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
