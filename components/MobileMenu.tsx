@@ -75,10 +75,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             );
           })}
         </nav>
-        
-        <div className="p-4 border-t border-gray-200 dark:border-gray-800 text-sm text-gray-500 dark:text-gray-400 font-mono">
-          <p>© {new Date().getFullYear()} Indie Dev</p>
-        </div>
+
       </div>
     </div>
   );
