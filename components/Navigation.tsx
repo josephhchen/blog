@@ -62,14 +62,14 @@ export default function Navigation() {
           
           <ThemeToggle />
           
-          {/* Mobile menu button */}
+          {/* Mobile menu button
           <button 
             onClick={toggleMobileMenu}
             className="sm:hidden p-2 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
             aria-label="Menu"
           >
             <Menu size={24} />
-          </button>
+          </button> */}
         </div>
       </div>
       
