@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
@@ -15,9 +14,9 @@ export default function Navigation() {
     { name: 'Devlogs', path: '/devlogs' },
   ];
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+//   const toggleMobileMenu = () => {
+//     setMobileMenuOpen(!mobileMenuOpen);
+//   };
 
 //   const closeMobileMenu = () => {
 //     setMobileMenuOpen(false);
