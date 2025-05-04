@@ -3,7 +3,17 @@ import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { JSX } from "react";
 import { Metadata } from "next";
 
-const devlogs = [
+// Define the type for devlog items
+type Devlog = {
+  id: number;
+  title: string;
+  content: string;
+  date: string;
+  readTime: string;
+};
+
+// Sample devlog data - in a real app, this would likely come from a CMS or database
+const devlogs: Devlog[] = [
   {
     id: 1,
     title: "What I've learned from building Lift Card (and future plans)",
@@ -45,17 +55,18 @@ Here's to building cool things!
   },
 ];
 
-// Type for the params property
-type Params = {
-  id: string;
+// Types for Next.js App Router
+type PageProps = {
+  params: {
+    id: string;
+  };
+  searchParams?: Record<string, string | string[] | undefined>;
 };
 
 // Generate metadata for the page
 export async function generateMetadata({ 
   params 
-}: { 
-  params: Params 
-}): Promise<Metadata> {
+}: PageProps): Promise<Metadata> {
   const devlog = devlogs.find(d => d.id === parseInt(params.id));
   
   if (!devlog) {
@@ -73,12 +84,8 @@ export async function generateMetadata({
   };
 }
 
-// Updated page component with proper typing for Next.js App Router
-export default function DevlogPage({ 
-  params 
-}: { 
-  params: Params 
-}) {
+// Page component
+export default function DevlogPage({ params }: PageProps) {
   const devlog = devlogs.find(d => d.id === parseInt(params.id));
   
   if (!devlog) {
