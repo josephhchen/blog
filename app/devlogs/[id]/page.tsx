@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { JSX } from "react";
 import { Metadata } from "next";
+import { use } from "react";
 
 // Define the type for devlog items
 type Devlog = {
@@ -55,19 +56,17 @@ Here's to building cool things!
   },
 ];
 
-// Types for Next.js App Router
-type PageProps = {
-  params: {
-    id: string;
-  };
-  searchParams?: Record<string, string | string[] | undefined>;
-};
+// In Next.js 15, params is a Promise
+type ParamsType = Promise<{ id: string }>;
 
 // Generate metadata for the page
 export async function generateMetadata({ 
   params 
-}: PageProps): Promise<Metadata> {
-  const devlog = devlogs.find(d => d.id === parseInt(params.id));
+}: { 
+  params: ParamsType 
+}): Promise<Metadata> {
+  const { id } = await params;
+  const devlog = devlogs.find(d => d.id === parseInt(id));
   
   if (!devlog) {
     return {
@@ -84,9 +83,14 @@ export async function generateMetadata({
   };
 }
 
-// Page component
-export default function DevlogPage({ params }: PageProps) {
-  const devlog = devlogs.find(d => d.id === parseInt(params.id));
+// Server Component version - use this if your page doesn't need client interactivity
+export default async function DevlogPage({ 
+  params 
+}: { 
+  params: ParamsType 
+}) {
+  const { id } = await params;
+  const devlog = devlogs.find(d => d.id === parseInt(id));
   
   if (!devlog) {
     return (
@@ -246,3 +250,21 @@ export default function DevlogPage({ params }: PageProps) {
     </article>
   );
 }
+
+/* 
+// Client Component version - uncomment and use "use client" directive if you need client-side interactivity
+// "use client";
+
+import { use } from "react";
+
+export default function DevlogPageClient({ 
+  params 
+}: { 
+  params: ParamsType 
+}) {
+  const { id } = use(params); // use() hook for client components
+  const devlog = devlogs.find(d => d.id === parseInt(id));
+  
+  // Rest of the component implementation...
+}
+*/
