@@ -46,8 +46,13 @@ Here's to building cool things!
   },
 ];
 
+// Type for the params property
+type Params = {
+  id: string;
+};
+
 // Generate metadata for the page
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const devlog = devlogs.find(d => d.id === parseInt(params.id));
   
   if (!devlog) {
@@ -65,14 +70,9 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-// Type for the params object
-type DevlogPageProps = {
-  params: {
-    id: string;
-  };
-};
-
-export default function DevlogPage({ params }: DevlogPageProps) {
+// For Next.js App Router, the page component doesn't need to conform to PageProps
+// It just needs to accept { params } and { searchParams } objects
+export default function DevlogPage({ params }: { params: Params }) {
   const devlog = devlogs.find(d => d.id === parseInt(params.id));
   
   if (!devlog) {
@@ -172,69 +172,64 @@ export default function DevlogPage({ params }: DevlogPageProps) {
   };
 
   return (
-    <>
-      <Head>
-        <link rel="icon" href="/eyeglasses.png" />
-      </Head>
-      <article className="max-w-3xl mx-auto font-mono">
-        <div className="mb-8">
-          <Link
-            href="/devlogs"
-            className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-4"
-          >
-            <ArrowLeft size={16} />
-            Back to Devlogs
-          </Link>
+    <article className="max-w-3xl mx-auto font-mono">
+      <div className="mb-8">
+        <Link
+          href="/devlogs"
+          className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-4"
+        >
+          <ArrowLeft size={16} />
+          Back to Devlogs
+        </Link>
+        
+        <h1 className="text-3xl font-bold mb-3">{devlog.title}</h1>
+        
+        <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-6">
+          <div className="flex items-center gap-1">
+            <Calendar size={16} />
+            <time dateTime={devlog.date.replace(/ /g, "-")}>
+              {devlog.date}
+            </time>
+          </div>
           
-          <h1 className="text-3xl font-bold mb-3">{devlog.title}</h1>
-          
-          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-6">
-            <div className="flex items-center gap-1">
-              <Calendar size={16} />
-              <time dateTime={devlog.date.replace(/ /g, "-")}>
-                {devlog.date}
-              </time>
-            </div>
-            
-            <div className="flex items-center gap-1">
-              <Clock size={16} />
-              <span>{devlog.readTime}</span>
-            </div>
+          <div className="flex items-center gap-1">
+            <Clock size={16} />
+            <span>{devlog.readTime}</span>
           </div>
         </div>
-        
-        <div className="prose prose-lg dark:prose-invert max-w-none">
-          {renderMarkdown(devlog.content)}
-        </div>
-        
-        <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-            <span className="text-gray-600 dark:text-gray-400 text-sm">
-              Thanks for reading!
-            </span>
-            
-            <div className="flex gap-4">
-              <button className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M7 10v12" />
-                  <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z" />
-                </svg>
-                Like
-              </button>
-            </div>
+      </div>
+      
+      <div className="prose prose-lg dark:prose-invert max-w-none">
+        {renderMarkdown(devlog.content)}
+      </div>
+      
+      <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+          <span className="text-gray-600 dark:text-gray-400 text-sm">
+            Thanks for reading!
+          </span>
+          
+          <div className="flex gap-4">
+            <button className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M7 10v12" />
+                <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z" />
+              </svg>
+              Like
+            </button>
           </div>
         </div>
-      </article>
-    </>
+      </div>
+    </article>
   );
 }
