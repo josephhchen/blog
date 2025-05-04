@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { JSX } from "react";
 import { Metadata } from "next";
-import Head from "next/head";
 
 const devlogs = [
   {
@@ -52,7 +51,11 @@ type Params = {
 };
 
 // Generate metadata for the page
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Params 
+}): Promise<Metadata> {
   const devlog = devlogs.find(d => d.id === parseInt(params.id));
   
   if (!devlog) {
@@ -70,9 +73,12 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   };
 }
 
-// For Next.js App Router, the page component doesn't need to conform to PageProps
-// It just needs to accept { params } and { searchParams } objects
-export default function DevlogPage({ params }: { params: Params }) {
+// Updated page component with proper typing for Next.js App Router
+export default function DevlogPage({ 
+  params 
+}: { 
+  params: Params 
+}) {
   const devlog = devlogs.find(d => d.id === parseInt(params.id));
   
   if (!devlog) {
