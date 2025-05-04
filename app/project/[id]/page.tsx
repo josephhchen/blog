@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { ArrowLeft, Github, Globe } from "lucide-react";
 
+interface PageProps {
+    params: {
+      id: string;
+    };
+    searchParams: Record<string, string | string[] | undefined>;
+  }
+
 // Sample project data - in a real app, this would come from a database or API
 const projects = [
   {
@@ -30,7 +37,7 @@ const projects = [
   },
 ];
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
+export default function ProjectPage({ params }: PageProps) {
   // In a real app, you would fetch the project from an API or database
   const project = projects.find(p => p.id === parseInt(params.id));
   
