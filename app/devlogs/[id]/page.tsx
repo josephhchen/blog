@@ -28,10 +28,14 @@ After following a couple of his tutorials, I decided to build a simple workout t
 
 ## Mistakes I made, and what I've learned.
 
-User feedback is THE most important aspect of building a product. After my initial app blow up in July of 2023, I received a ton of feedback from users. Unfortunately, I was too inexperienced to handle all of the complicated features users wanted to be added. I ended up ignoring all of the feedback and just focused on building the features that I thought were beneficial to the app, but this was a huge mistake and killed the app.
+When Lift Card first started gaining traction in July 2023, I wasn’t ready.
+
+Thousands of users poured in. I should’ve celebrated, but instead, I panicked. My inbox was filled with feedback—feature requests, bug reports, passionate messages from people who actually cared. But I didn’t know how to process it all. I didn’t prioritize the voices of my users. Instead, I doubled down on my own vision, thinking I knew best. That was my biggest mistake.
+I remember seeing the user count slowly go up. 100, 1000, 15000, 30000. I was pulling my hairs out during my software engineering intership. I was working 9-5, and then coming home to work on Lift Card. I was exhausted, and I didn't know how to handle the influx of users
 
 I rebuilt the app from the ground up in November of 2024, and took all of the previous feedback into account. After re-releasing (and a tiny bit of marketing), the app is in a pretty solid place. We're currently sitting at over 5,000 daily active users! Extremely proud of the work that has been put in, but I know there's so much more to do.
 
+Here's the takeaway: You don’t build a great product alone, you build it with people who believe in your vision, even when you don’t yet know where it’s going.
 ## What's next?
 
 I've asked one of my good friends, [Colin Hwang](https://www.colinhwang.dev/), to join me on this journey. Having a co-founder to bounce ideas off of allows us to keep iterating and building new features that users genuinely enjoy. He's currently focused on the diet tracking, workout automation side of the app, while I'm focused on the social aspect of the app.
