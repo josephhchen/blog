@@ -1,12 +1,10 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   
   const navItems = [
@@ -21,14 +19,6 @@ export default function Navigation() {
 //   const closeMobileMenu = () => {
 //     setMobileMenuOpen(false);
 //   };
-
-  if (typeof window !== 'undefined') {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }
 
   return (
     <header className="sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800 bg-background/80 backdrop-blur-sm">
