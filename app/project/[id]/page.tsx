@@ -18,7 +18,7 @@ const projects = [
     longDescription: `I love going to the gym, so I wanted to create a social fitness app that allows users to share their workouts, track their progress, and connect with friends. The app features a clean and intuitive interface, allowing users to easily log their workouts, set goals, and view their progress over time.
     `,
     image: "/liftcard.png",
-    tag: "Game",
+    tag: "Mobile App",
     date: "Dec 2022",
     technologies: ["React Native", "TypeScript", "Firebase", "Golang", "AWS"],
     liveUrl: "https://apps.apple.com/us/app/lift-card-social-fitness-app/id6449883528",
