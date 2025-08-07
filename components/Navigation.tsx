@@ -2,33 +2,39 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
 import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const navItems = [
     { name: 'Projects', path: '/' },
     { name: 'Devlogs', path: '/devlogs' },
   ];
 
-//   const toggleMobileMenu = () => {
-//     setMobileMenuOpen(!mobileMenuOpen);
-//   };
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
-//   const closeMobileMenu = () => {
-//     setMobileMenuOpen(false);
-//   };
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
-    <header className="sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800 bg-background/80 backdrop-blur-sm">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <Link href="/" className="font-mono text-lg font-bold">
+    <header className="sticky top-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <Link 
+          href="/" 
+          className="font-mono text-lg font-bold text-white dark:text-white hover:opacity-70 transition-opacity"
+        >
           joe chen
         </Link>
         
-        <div className="flex items-center gap-6">
-          <nav className="hidden sm:flex items-center space-x-6">
+        <div className="flex items-center gap-8">
+          <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => {
               const isActive = item.path === pathname || 
                 (item.path !== '/' && pathname?.startsWith(item.path));
@@ -37,13 +43,16 @@ export default function Navigation() {
                 <Link
                   key={item.name}
                   href={item.path}
-                  className={`font-mono font-medium transition-colors ${
+                  className={`font-mono text-sm font-medium transition-all duration-200 relative group ${
                     isActive 
-                      ? 'text-black dark:text-white font-bold' 
-                      : 'text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white'
+                      ? 'text-black dark:text-white' 
+                      : 'text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white'
                   }`}
                 >
                   {item.name}
+                  {isActive && (
+                    <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-black dark:bg-white rounded-full" />
+                  )}
                 </Link>
               );
             })}
@@ -51,35 +60,33 @@ export default function Navigation() {
           
           <ThemeToggle />
           
-          {/* Mobile menu button
           <button 
             onClick={toggleMobileMenu}
-            className="sm:hidden p-2 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+            className="md:hidden p-2 text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
             aria-label="Menu"
           >
-            <Menu size={24} />
-          </button> */}
+            <Menu size={20} />
+          </button>
         </div>
       </div>
       
-      {/* Inline Mobile menu implementation
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm sm:hidden">
-          <div className="fixed inset-0 bg-black/20" onClick={closeMobileMenu} />
+        <div className="fixed inset-0 z-50 md:hidden">
+          <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" onClick={closeMobileMenu} />
           
-          <div className="fixed inset-y-0 right-0 w-3/4 max-w-sm bg-background border-l border-gray-200 dark:border-gray-800 shadow-xl flex flex-col">
-            <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
+          <div className="fixed inset-y-0 right-0 w-3/4 max-w-sm bg-white dark:bg-black border-l border-gray-200 dark:border-gray-800 shadow-2xl flex flex-col animate-slide-up">
+            <div className="flex items-center justify-between p-6 border-b border-gray-200/20 dark:border-gray-800/20">
               <p className="font-bold font-mono">Menu</p>
               <button 
                 onClick={closeMobileMenu}
-                className="p-2 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
+                className="p-2 text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
                 aria-label="Close menu"
               >
-                <X size={24} />
+                <X size={20} />
               </button>
             </div>
             
-            <nav className="flex-1 overflow-auto py-4">
+            <nav className="flex-1 py-6">
               {navItems.map((item) => {
                 const isActive = item.path === pathname || 
                   (item.path !== '/' && pathname?.startsWith(item.path));
@@ -88,10 +95,10 @@ export default function Navigation() {
                   <Link
                     key={item.name}
                     href={item.path}
-                    className={`font-mono block py-3 px-6 text-lg ${
+                    className={`font-mono block py-4 px-6 text-base transition-all duration-200 ${
                       isActive 
-                        ? 'font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20' 
-                        : 'text-gray-800 dark:text-gray-200'
+                        ? 'font-medium text-black dark:text-white bg-gray-100/50 dark:bg-gray-800/50' 
+                        : 'text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-100/30 dark:hover:bg-gray-800/30'
                     }`}
                     onClick={closeMobileMenu}
                   >
@@ -101,12 +108,12 @@ export default function Navigation() {
               })}
             </nav>
             
-            <div className="p-4 border-t border-gray-200 dark:border-gray-800 text-sm text-gray-500 dark:text-gray-400 font-mono">
-              <p>© {new Date().getFullYear()} Indie Dev</p>
+            <div className="p-6 border-t border-gray-200/20 dark:border-gray-800/20 text-sm text-gray-500 dark:text-gray-400 font-mono">
+              <p>© 2025 Joe Chen</p>
             </div>
           </div>
         </div>
-      )} */}
+      )}
     </header>
   );
 }

@@ -49,7 +49,7 @@ export default async function ProjectPage({ params }: PageProps) {
     return (
       <div className="flex flex-col items-center justify-center py-20 font-mono">
         <h1 className="text-2xl font-bold mb-4">Project Not Found</h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-6">
+        <p className="text-gray-800 dark:text-gray-400 mb-6">
           The project you&apos;re looking for doesn&apos;t exist or has been removed.
         </p>
         <Link

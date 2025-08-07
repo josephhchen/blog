@@ -34,12 +34,12 @@ export default function RootLayout({
       >
         <div className="min-h-screen flex flex-col">
           <Navigation />
-          <main className="flex-grow container mx-auto px-4 py-8">
+          <main className="flex-grow">
             {children}
           </main>
-          <footer className="border-t border-gray-200 dark:border-gray-800 py-6">
-            <div className="container mx-auto px-4 text-center text-sm text-gray-500 dark:text-gray-400">
-              <p>© {new Date().getFullYear()} Joe Chen</p>
+          <footer className="border-t border-gray-200/50 dark:border-gray-800/50 py-8 mt-16">
+            <div className="max-w-6xl mx-auto px-6 text-center text-sm text-gray-500 dark:text-gray-400">
+              <p className="font-mono">© 2025 Joe Chen</p>
             </div>
           </footer>
         </div>

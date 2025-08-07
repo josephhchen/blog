@@ -7,7 +7,7 @@ export default function ThemeScript() {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme');
       
-      const initialTheme = savedTheme || 'dark';
+      const initialTheme = savedTheme || 'light';
       
       if (initialTheme === 'dark') {
         document.documentElement.classList.add('dark');

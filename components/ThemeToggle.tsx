@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     
-    const initialTheme = savedTheme || 'dark';
+    const initialTheme = savedTheme || 'light';
     setTheme(initialTheme as 'light' | 'dark');
     
     applyTheme(initialTheme as 'light' | 'dark');
@@ -26,12 +26,8 @@ export default function ThemeToggle() {
     const root = document.documentElement;
     if (currentTheme === 'dark') {
       root.classList.add('dark');
-      document.body.style.setProperty('--background', '#0a0a0a');
-      document.body.style.setProperty('--foreground', '#ededed');
     } else {
       root.classList.remove('dark');
-      document.body.style.setProperty('--background', '#ffffff');
-      document.body.style.setProperty('--foreground', '#171717');
     }
   };
 
