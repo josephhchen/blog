@@ -28,7 +28,7 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <Link 
           href="/" 
-          className="font-mono text-lg font-bold text-white dark:text-white hover:opacity-70 transition-opacity"
+          className="font-mono text-lg font-bold text-black dark:text-white hover:opacity-70 transition-opacity"
         >
           joe chen
         </Link>

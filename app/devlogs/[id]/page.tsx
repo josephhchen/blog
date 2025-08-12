@@ -102,7 +102,7 @@ export default async function BlogPostPage({
     return (
       <div className="max-w-4xl mx-auto px-6 py-16 text-center animate-fade-in">
         <h1 className="text-3xl font-bold mb-4">Post Not Found</h1>
-        <p className="text-gray-800 dark:text-gray-400 mb-8">
+        <p className="text-gray-700 dark:text-gray-400 mb-8">
           The post you're looking for doesn't exist or has been removed.
         </p>
         <Link
@@ -127,7 +127,7 @@ export default async function BlogPostPage({
         <div className="mb-8 animate-fade-in">
           <Link
             href="/devlogs"
-            className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors font-medium"
+            className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:theme-text transition-colors font-medium"
           >
             <ArrowLeft size={16} />
             Back to Devlogs
@@ -140,7 +140,7 @@ export default async function BlogPostPage({
             {post.tags.map((tag) => (
               <span 
                 key={tag}
-                className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300"
+                className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
               >
                 {tag}
               </span>
@@ -208,7 +208,7 @@ export default async function BlogPostPage({
                     {relatedPost.tags.slice(0, 2).map((tag) => (
                       <span 
                         key={tag}
-                        className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300"
+                        className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
                       >
                         {tag}
                       </span>
@@ -217,7 +217,7 @@ export default async function BlogPostPage({
                   <h3 className="text-lg font-bold mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
                     {relatedPost.title}
                   </h3>
-                  <p className="text-gray-800 dark:text-gray-400 text-sm mb-3 line-clamp-2">
+                  <p className="text-gray-700 dark:text-gray-400 text-sm mb-3 line-clamp-2">
                     {relatedPost.excerpt}
                   </p>
                   <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500 font-mono">

@@ -4,7 +4,7 @@
   --background: #ffffff;
   --foreground: #0a0a0a;
   --muted: #f4f4f5;
-  --muted-foreground: #71717a;
+  --muted-foreground: #525252;
   --border: #e4e4e7;
   --accent: #000000;
   --accent-foreground: #ffffff;
@@ -118,4 +118,12 @@ code {
 
 .gradient-text {
   @apply bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent dark:from-white dark:to-gray-300;
+}
+
+.theme-text {
+  color: black !important;
+}
+
+.dark .theme-text {
+  color: white !important;
 }

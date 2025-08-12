@@ -29,8 +29,14 @@ export function parseMarkdownFile(content: string): {
           
           if (cleanKey === 'tags') {
             meta.tags = value.split(',').map(tag => tag.trim());
-          } else {
-            (meta as any)[cleanKey] = value.replace(/['"]/g, '');
+          } else if (cleanKey === 'title') {
+            meta.title = value.replace(/['"]/g, '');
+          } else if (cleanKey === 'excerpt') {
+            meta.excerpt = value.replace(/['"]/g, '');
+          } else if (cleanKey === 'date') {
+            meta.date = value.replace(/['"]/g, '');
+          } else if (cleanKey === 'readTime') {
+            meta.readTime = value.replace(/['"]/g, '');
           }
         }
       });
@@ -105,7 +111,7 @@ Wrap up your thoughts...
 export function formatMarkdown(content: string): string {
   return content
     // Ensure proper spacing around headers
-    .replace(/^(#{1,6})\s*(.+)$/gm, (match, hashes, title) => {
+    .replace(/^(#{1,6})\s*(.+)$/gm, (_, hashes, title) => {
       return `\n${hashes} ${title.trim()}\n`;
     })
     // Ensure proper spacing around paragraphs
