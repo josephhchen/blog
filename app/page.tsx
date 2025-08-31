@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 
 const projects = [
   {
@@ -154,10 +154,10 @@ export default function Home() {
             className="group block border border-gray-200/50 dark:border-gray-800/50 rounded-2xl p-6 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300"
           >
             <h3 className="theme-text text-lg font-bold mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
-              Coming up with a new app idea
+              What does Success Truly Mean?
             </h3>
             <p className="text-gray-700 dark:text-gray-400 text-sm mb-3 line-clamp-2">
-              I'm still working on Lift Card, but I want to start something new. Here's my thought process.
+              Growing up I always thought that success meant making X amount of money, getting X job, but I've recently been exploring that idea that success is so much more.
             </p>
             <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500 font-mono">
               <span>May 4, 2025</span>
