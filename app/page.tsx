@@ -22,13 +22,13 @@ export default function Home() {
       {/* Hero Section */}
       <section className="mb-24 animate-fade-in">
         <div className="max-w-3xl">
-          <h1 className="text-black dark:text-white text-4xl md:text-6xl font-bold mb-6 animate-slide-up">
+          <h1 className="theme-text text-4xl md:text-6xl font-bold mb-6 animate-slide-up">
            Hello!
           </h1>
           <p className="text-lg md:text-xl text-gray-700 dark:text-gray-400 mb-8 leading-relaxed animate-slide-up">
             I'm Joe, a Software Development Engineer at Amazon.
             <br />
-            Currently building <Link href="/devlogs" className="text-black dark:text-white font-medium hover:underline decoration-black dark:decoration-white">Lift Card</Link>, 
+            Currently building <Link href="/devlogs" className="theme-text font-medium hover:underline decoration-black dark:decoration-white">Lift Card</Link>, 
             a social fitness app with thousands of daily users.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-slide-up">
@@ -52,7 +52,7 @@ export default function Home() {
       {/* Projects Section */}
       <section className="mb-24">
         <div className="flex items-center justify-between mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold">Featured Projects</h2>
+          <h2 className="theme-text text-2xl md:text-3xl font-bold">Featured Projects</h2>
           <Link 
             href="/projects" 
             className="text-sm font-medium text-black dark:text-gray-400 hover:opacity-70 dark:hover:text-white transition-all"
@@ -71,7 +71,7 @@ export default function Home() {
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-3">
-                    <h3 className="text-xl font-bold group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
+                    <h3 className="theme-text text-xl font-bold group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
                       {project.title}
                     </h3>
                     <div className="flex items-center gap-2">
@@ -122,10 +122,10 @@ export default function Home() {
 
       <section>
         <div className="flex items-center justify-between mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold">Latest Thoughts</h2>
+          <h2 className="theme-text text-2xl md:text-3xl font-bold">Latest Thoughts</h2>
           <Link 
             href="/devlogs" 
-            className="text-sm font-medium text-black dark:text-g'ray-400 hover:opacity-70 dark:hover:text-white transition-all"
+            className="text-sm font-medium text-black dark:text-gray-400 hover:opacity-70 dark:hover:text-white transition-all"
           >
             Read all →
           </Link>
@@ -136,7 +136,7 @@ export default function Home() {
             href="/devlogs/1"
             className="group block border border-gray-200/50 dark:border-gray-800/50 rounded-2xl p-6 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300"
           >
-            <h3 className="text-lg font-bold mb-2 group-hover:tex<Git-gray-600 dark:group-hover:text-gray-400 transition-colors">
+            <h3 className="theme-text text-lg font-bold mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
               What I've learned from building Lift Card
             </h3>
             <p className="text-gray-700 dark:text-gray-400 text-sm mb-3 line-clamp-2">
@@ -153,7 +153,7 @@ export default function Home() {
             href="/devlogs/2"
             className="group block border border-gray-200/50 dark:border-gray-800/50 rounded-2xl p-6 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300"
           >
-            <h3 className="text-lg font-bold mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
+            <h3 className="theme-text text-lg font-bold mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
               Coming up with a new app idea
             </h3>
             <p className="text-gray-700 dark:text-gray-400 text-sm mb-3 line-clamp-2">

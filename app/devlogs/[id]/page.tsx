@@ -40,19 +40,19 @@ function MarkdownRenderer({ content }: { content: string }) {
   const elements = content.split('\n').map((line, index) => {
     if (line.startsWith('# ')) {
       return (
-        <h1 key={index} className="text-3xl md:text-4xl font-bold mt-12 mb-6 first:mt-0">
+        <h1 key={index} className="theme-text text-3xl md:text-4xl font-bold mt-12 mb-6 first:mt-0">
           {line.substring(2)}
         </h1>
       );
     } else if (line.startsWith('## ')) {
       return (
-        <h2 key={index} className="text-2xl md:text-3xl font-bold mt-10 mb-5">
+        <h2 key={index} className="theme-text text-2xl md:text-3xl font-bold mt-10 mb-5">
           {line.substring(3)}
         </h2>
       );
     } else if (line.startsWith('### ')) {
       return (
-        <h3 key={index} className="text-xl md:text-2xl font-bold mt-8 mb-4">
+        <h3 key={index} className="theme-text text-xl md:text-2xl font-bold mt-8 mb-4">
           {line.substring(4)}
         </h3>
       );
@@ -73,12 +73,12 @@ function MarkdownRenderer({ content }: { content: string }) {
     } else {
       if (line.includes('<a href')) {
         return (
-          <p key={index} className="mb-6 text-gray-700 dark:text-gray-300 leading-relaxed text-lg" 
+          <p key={index} className="mb-6 theme-text leading-relaxed text-lg" 
              dangerouslySetInnerHTML={{ __html: line }} />
         );
       } else {
         return (
-          <p key={index} className="mb-6 text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
+          <p key={index} className="mb-6 theme-text leading-relaxed text-lg">
             {line}
           </p>
         );
@@ -147,7 +147,7 @@ export default async function BlogPostPage({
             ))}
           </div>
           
-          <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+          <h1 className="theme-text text-3xl md:text-5xl font-bold mb-6 leading-tight">
             {post.title}
           </h1>
           
@@ -196,7 +196,7 @@ export default async function BlogPostPage({
         {/* Related Posts */}
         {otherPosts.length > 0 && (
           <section className="border-t border-gray-200/50 dark:border-gray-800/50 pt-16">
-            <h2 className="text-2xl font-bold mb-8">More Posts</h2>
+            <h2 className="theme-text text-2xl font-bold mb-8">More Posts</h2>
             <div className="grid gap-6 md:grid-cols-2">
               {otherPosts.map((relatedPost) => (
                 <Link
@@ -214,7 +214,7 @@ export default async function BlogPostPage({
                       </span>
                     ))}
                   </div>
-                  <h3 className="text-lg font-bold mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
+                  <h3 className="theme-text text-lg font-bold mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
                     {relatedPost.title}
                   </h3>
                   <p className="text-gray-700 dark:text-gray-400 text-sm mb-3 line-clamp-2">
