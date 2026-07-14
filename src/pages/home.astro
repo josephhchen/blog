@@ -2,14 +2,18 @@
 import "../styles/global.css"
 
 ---
-<div class="w-screen h-screen flex bg-[#121212] mx-auto">
-	<main class="grid content-center p-20">
-		<section class="text-md font-normal text-gray-600 m-8">
+<div class="w-screen h-screen flex justify-center items-center bg-[#121212] mx-auto">
+	<main class="grid content-center sm:p-10 md:p-15 lg:p-20">
+		<section class="sm:text-sm md:text-md lg:text-md font-normal text-gray-600 mx-auto p-4">
 			Software Engineer @ Amazon
 		</section>
-		<h1 class="text-8xl font-semibold text-white">
+		<h1 class="sm:text-xl md:text-6xl lg:text-8xl font-semibold text-white mx-auto p-4">
 			Joseph Chen
 		</h1>
+		<div class="flex mt-8 space-x-4 mx-auto p-4">
+           		<a href="/work" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Work</a>
+            		<a href="/blog" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Blog</a>
+        	</div>
 		
 	</main>
 </div>
