@@ -1,17 +1,14 @@
 ---
 import "../styles/global.css"
+import Header from '../components/Header.astro' 
 ---
 
-<div class="w-screen h-screen flex bg-[#121212] mx-auto">
-	<main class="grid content-center p-20">
-		<section class="text-md font-normal text-gray-600 m-8">
-			Software Engineer @ Amazon
-		</section>
-		<h1 class="text-8xl font-semibold text-white">
-			Joseph Chen
-		</h1>
-		
-	</main>
+<div class="h-screen w-screen flex bg-[#121212] mx-auto">
+	<Header />
+		<main class="content-start p-20">
+			<section class="sm:text-sm md:text-md: lg:text-md font-normal text-gray-600 m-8">
+				<a href="/posts/post-1" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Programming without AI</a>
+			</section>	
+		</main>
 </div>
-
 
